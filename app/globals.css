@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SuccessNOW Design System Variables */
+:root {
+  --bright-blue: #007BFF;
+  --dark-blue: #00274D;
+  --vibrant-yellow: #FFD700;
+  --soft-gray: #F4F4F4;
+  --charcoal: #333333;
+  --glass-white: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+/* Glassmorphic Card Base Style */
+.glass-card {
+  background: var(--glass-white);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-card-hover {
+  transition: all 0.3s ease;
+}
+
+.glass-card-hover:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* SuccessNOW Button Styles */
+.btn-primary {
+  @apply bg-bright-blue hover:bg-blue-600 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105;
+}
+
+.btn-secondary {
+  @apply bg-transparent border-2 border-bright-blue text-bright-blue hover:bg-bright-blue hover:text-white font-medium py-3 px-8 rounded-full transition-all duration-300;
+}
+
+.btn-accent {
+  @apply bg-vibrant-yellow hover:bg-yellow-400 text-charcoal font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl;
+}
+
+/* Step Progress Indicator */
+.step-indicator {
+  @apply flex items-center justify-center w-12 h-12 rounded-full border-2 text-sm font-bold transition-all duration-300;
+}
+
+.step-indicator.completed {
+  @apply bg-bright-blue border-bright-blue text-white;
+}
+
+.step-indicator.current {
+  @apply bg-vibrant-yellow border-vibrant-yellow text-charcoal;
+}
+
+.step-indicator.upcoming {
+  @apply bg-transparent border-gray-300 text-gray-400;
+}
+
+/* Chat Interface Styles */
+.chat-message {
+  @apply p-4 rounded-2xl mb-4 max-w-4xl;
+}
+
+.chat-message.user {
+  @apply bg-bright-blue text-white ml-auto;
+}
+
+.chat-message.ai {
+  @apply bg-white border border-gray-200 text-charcoal;
+}
+
+/* Form Styles */
+.form-input {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-bright-blue focus:border-bright-blue transition-colors bg-white;
+}
+
+.form-textarea {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-bright-blue focus:border-bright-blue transition-colors bg-white resize-vertical min-h-[120px];
+}
+
+.form-label {
+  @apply block text-sm font-medium text-charcoal mb-2;
+}
+
+/* Loading Animations */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid var(--bright-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Gradient Backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--bright-blue) 0%, var(--dark-blue) 100%);
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, var(--vibrant-yellow) 0%, #FFA500 100%);
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+  @apply w-64 h-full bg-dark-blue text-white fixed left-0 top-0 z-40 transform transition-transform duration-300;
+}
+
+.sidebar-nav.closed {
+  @apply -translate-x-full;
+}
+
+.nav-item {
+  @apply flex items-center px-6 py-3 text-gray-300 hover:text-white hover:bg-bright-blue transition-colors duration-200;
+}
+
+.nav-item.active {
+  @apply text-white bg-bright-blue border-r-4 border-vibrant-yellow;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .glass-card {
+    border-radius: 15px;
+    margin: 0 10px;
+  }
+  
+  .sidebar-nav {
+    @apply w-full;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--soft-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bright-blue);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-blue);
+}
